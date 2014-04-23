@@ -11,7 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409175812) do
+ActiveRecord::Schema.define(version: 20140422044555) do
+
+  create_table "answers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "datee_id"
+    t.integer  "result_id"
+    t.integer  "survey_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "experiences", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "datee_id"
+    t.integer  "friendly_id"
+    t.integer  "num_exp"
+    t.datetime "date"
+    t.string   "location"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "datee_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surveys", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "datee_id"
+    t.integer  "answer_id"
+    t.boolean  "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_surveys", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "survey_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -28,6 +73,8 @@ ActiveRecord::Schema.define(version: 20140409175812) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.string   "fname"
+    t.string   "lname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

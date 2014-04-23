@@ -1,0 +1,18 @@
+<h1>Sign Up</h1>
+<p>Here's the thing... join us!</p>
+<br>
+<br>
+<%=form_for User.new do |f| %>
+<%=f.label :fname %>
+<%=f.text_field :fname %>
+<%=f.label :lname %>
+<%=f.text_field :lname %>
+<br>
+<%=f.label :email %>
+<%=f.text_field :email %>
+<br>
+<%=f.label :password %>
+<%=f.password_field :password %>
+<%=f.label :password_confirmation %>
+<%=f.submit "Sign Up!" %>
+<% end %>

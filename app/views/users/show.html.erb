@@ -1,0 +1,10 @@
+<h1>My Profile</h1>
+
+<% if logged_in? %>
+	<% unless @user == current_user || current_user.requested_datees.include?(@user) || current_user.datees.include?(@user) || current_user.pending_datees.include?(@user) %>
+		
+		<% form_for(:relationship, :url => user_datees_path(:user_id => current_user.id, :datee_id => @user.id)) do |f| %>
+			<%= submit_tag "Add to My Dates" %>
+		<% end %>
+	<% end %>
+<% end %>

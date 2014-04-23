@@ -11,4 +11,14 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
     end
   end
+
+has_many :datees, :through => :relationships, :conditions => "status = 'accepted'"
+has_many :requested_datees, :through => :relationships, :source => :datee, :conditions => "status = 'requested'", :order => :created_at
+has_many :pending_datees, :through => :relationships, :source => :datee, :conditions => "status = 'pending'", :order => :created_at
+has_many :relationships, :dependent => :destroy
+
+has_many :surveys
+has_many :experiences
+
+
 end
