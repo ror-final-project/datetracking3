@@ -13,14 +13,25 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experience_params)
-    @experience.user = current_user
-    if @experience.save
-      flash[:notice] = "Your date has been saved."
-      redirect_to experiences_path(@experience)
+    @user = User.where(email: params[:user_email]).first
+    if @user
+      @experience.datee_id = @user.id
+      #if a user is found, assign them to that experience, flash notice
+      #to inform of success,
+      #redirect.
+      @experience.user = current_user
+      if @experience.save
+        flash[:notice] = "Your date has been saved."
+        redirect_to experiences_path(@experience)
+      else
+        flash[:alert] = "Your date was unable to be saved."
+        redirect_to :back
+      end
     else
-      flash[:alert] = "Your date was unable to be saved."
-      redirect_to :back
+      flash[:alert] = "Sorry, there was no user found with that email."
+      #redirect
     end
+    
   end
 
   def edit

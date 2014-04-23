@@ -1,8 +1,9 @@
 <h1>Save a New Date</h1>
 
 <%=form_for [@experience] do |t| %>
-	<%=t.label(:datee_id, "Who?") %>  
-	<%=t.search_field(:datee_id) %>
+	<%=label_tag(:user_email, "Who?") %>  
+	<%=email_field_tag(:user_email) %>
+
 	<br>
 	<%=t.label(:date, "When?") %>  
 	<%=t.date_field(:date) %>
