@@ -10,7 +10,8 @@ class SessionsController < Devise::SessionsController
   		redirect_to "/"
   	else
   		flash[:alert] = "There was a problem logging you in."
-  	end
+  	   redirect_to log_in_path
+    end
   end
 
   def destroy
