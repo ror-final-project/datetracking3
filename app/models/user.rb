@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   validates :fname, presence: true
   validates :lname, presence: true
+
+  
   #def self.find_or_create_for_facebook_oauth(auth)
    # where(auth.slice(:provider, :uid)).first_or_create do |user|
     #    user.provider = auth.provider
