@@ -1,0 +1,41 @@
+<h1>Surveys</h1>
+
+
+<%=form_for @experience do |f| %>
+<p>At this moment, I am looking for:</p>
+<br>
+<br>
+<%=f.radio_button :user_id, "Friendship", :answer => true %>
+<%=f.label(:answer, "Friendship") %>
+<br>
+<%=f.radio_button :user_id, "Hook-Up Only", :answer => true %>
+<%=f.label(:answer, "Hook-Up Only") %>
+<br>
+<%=f.radio_button :user_id, "Casual Dating", :answer => true %>
+<%=f.label(:answer, "Casual Dating") %>
+<br>
+<%=f.radio_button :user_id, "Exclusive Relationship", :answer => true %>
+<%=f.label(:answer, "Exclusive Relationship") %>
+<% end %>
+<br>
+<br>
+
+<%=form_for @experience do |f| %>
+<p>With *|FNAME|*, I am looking for:</p>
+<br>
+<br> 
+<%=f.radio_button :user_id, "Friendship", :answer => true %>
+<%=f.label(:answer, "Friendship") %>
+<br>
+<%=f.radio_button :user_id, "Hook-Up Only", :answer => true %>
+<%=f.label(:answer, "Hook-Up Only") %>
+<br>
+<%=f.radio_button :user_id, "Casual Dating", :answer => true %>
+<%=f.label(:answer, "Casual Dating") %>
+<br>
+<%=f.radio_button :user_id, "Exclusive Relationship", :answer => true %>
+<%=f.label(:answer, "Exclusive Relationship") %>
+<br>
+<br>
+<%=f.submit "Submit" %>
+<% end %>

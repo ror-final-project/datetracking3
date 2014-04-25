@@ -1,0 +1,20 @@
+<h1>Your Experience</h1>
+
+Who: <%=@experience.datee_id %> 
+<br>
+When: <%=@experience.date.strftime("%B #{@experience.date.day.ordinalize}, %Y") %>
+<br>
+Where: <%=@experience.location %> 
+<br>
+Description: <%=@experience.description %>
+<br>
+Created: <%=distance_of_time_in_words(Time.now, @experience.created_at) %>
+<br>
+<br>
+<%= link_to "Edit this Experience", edit_experience_path %>
+<br>
+<br>
+
+<%= link_to "See all Experiences", experiences_path %>
+<br>
+<%= link_to "Save a New Experience", new_experience_path %>

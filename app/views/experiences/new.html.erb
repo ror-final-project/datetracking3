@@ -1,0 +1,21 @@
+<h1>Save a New Date</h1>
+
+<%=form_for [@experience] do |t| %>
+	<%=label_tag(:user_email, "Who?") %>  
+	<%=email_field_tag(:user_email) %>
+
+	<br>
+	<%=t.label(:date, "When?") %>  
+	<%=t.date_field(:date) %>
+	<br>
+	<%=t.label(:location, "Where?") %>  
+	<%=t.text_field(:location) %>
+	<br>
+	<%=t.label(:description, "Description:") %>  
+	<%=t.text_area(:description) %>
+	<br>
+	<br>
+	<%=t.submit :submit %>
+	
+
+<% end %>
