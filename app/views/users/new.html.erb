@@ -4,7 +4,7 @@
 <p>Here's the thing... join us!</p>
 <br>
 <br>
-<%=form_for User.new do |f| %>
+<%=form_for @user do |f| %>
 <%=f.label :fname %>
 <%=f.text_field :fname %>
 <%=f.label :lname %>
@@ -16,5 +16,6 @@
 <%=f.label :password %>
 <%=f.password_field :password %>
 <%=f.label :password_confirmation %>
+<br>
 <%=f.submit "Sign Up!" %>
 <% end %>

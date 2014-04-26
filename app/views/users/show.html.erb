@@ -4,16 +4,8 @@
 <%= @user.lname %>
 <%= @user.email %>
 
-<<<<<<< HEAD
+<%= image_tag @user.avatar.url(:medium) %>
 
-<!-- <% #if logged_in? %>
-	<%# unless @user == current_user || current_user.requested_datees.include?(@user) || current_user.datees.include?(@user) || current_user.pending_datees.include?(@user) %>
-		<%# form_for(:relationship, :url => user_datees_path(:user_id => current_user.id, :datee_id => @user.id)) do |f| %>
-		<%= #submit_tag "Add to My Dates" %>
-		<%# end %>
-	<%# end %>
-<%# end %> -->
-=======
 <% if current_user %>
 	<% unless @user == current_user || current_user.requested_datees.include?(@user) || current_user.datees.include?(@user) || current_user.pending_datees.include?(@user) %>
 		
@@ -22,4 +14,4 @@
 		<% end %>
 	<% end %>
 <% end %>
->>>>>>> 77369b11060736ba208be06d05c579607492e169
+
