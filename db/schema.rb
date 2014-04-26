@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140425010707) do
+=======
+ActiveRecord::Schema.define(version: 20140425172006) do
+>>>>>>> 77369b11060736ba208be06d05c579607492e169
 
   create_table "answers", force: true do |t|
     t.integer  "user_id"
@@ -32,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140425010707) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "fname"
   end
 
   create_table "relationships", force: true do |t|

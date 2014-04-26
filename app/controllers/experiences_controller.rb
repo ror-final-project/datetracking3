@@ -16,6 +16,7 @@ class ExperiencesController < ApplicationController
     @user = User.where(email: params[:user_email]).first
     if @user
       @experience.datee_id = @user.id
+      @experience.fname = @user.fname
       #if a user is found, assign them to that experience, flash notice
       #to inform of success,
       #redirect.
