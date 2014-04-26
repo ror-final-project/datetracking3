@@ -17,8 +17,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
-  validates :attachment, :attachment_content_type => { :content_type => ['image/png', 'image/jpg']}
-
+  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
   #def self.find_or_create_for_facebook_oauth(auth)
    # where(auth.slice(:provider, :uid)).first_or_create do |user|
     #    user.provider = auth.provider
