@@ -1,7 +1,10 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
 
-<%=form_for User.new do |f| %>
+<%=form_for User.new, :url => users_path, :html => { :multipart => true } do |f| %>
+<%=f.file_field :avatar %>
+<br>
+<br>
 <%=f.label :fname %>
 <%=f.text_field :fname %>
 <%=f.label :lname %>

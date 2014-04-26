@@ -7,6 +7,8 @@ gem 'rails', '4.0.4'
 gem 'sqlite3'
 
 gem 'carrierwave'
+
+gem 'paperclip', github: 'thoughtbot/paperclip'
 #for adding photos
 
 # Use SCSS for stylesheets

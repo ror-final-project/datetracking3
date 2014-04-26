@@ -4,6 +4,8 @@
 <%= @user.lname %>
 <%= @user.email %>
 
+<%= image_tag @user.avatar.url(:medium) %>
+
 <% if current_user %>
 	<% unless @user == current_user || current_user.requested_datees.include?(@user) || current_user.datees.include?(@user) || current_user.pending_datees.include?(@user) %>
 		
