@@ -8,6 +8,9 @@ gem 'sqlite3'
 
 gem 'carrierwave'
 
+
+gem 'paperclip', github: 'thoughtbot/paperclip'
+
 #for adding photos
 
 # Use SCSS for stylesheets

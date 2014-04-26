@@ -19,21 +19,37 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user && @user.update_attributes(params[:user])
+      flash[:notice] = "Changes made - good to go!"
+      redirect_to user_path(@user)
+    else
+      flash[:alert] = "Uh Oh - there was an issue with with your updates" 
+      redirect_to :back
+    end
   end
 
   def destroy
+    @user = User.find(params[:id])
+    if @user && @user.destroy
+      flash[:notice] = "Your user has been deleted."
+    else
+      flash[:alert] = "There was an issue deleting that user..."
+    end
+    redirect_to "/users"
   end
 
   def show
     @user = User.find(params[:id])
 
-    respond_to do |format|
-        format.html # show.html.erb
-        format.xml { render :xml => @user }
-    end
+    #respond_to do |format|
+       # format.html # show.html.erb
+        #format.xml { render :xml => @user }
+    #end
   end
 
 private

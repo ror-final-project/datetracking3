@@ -1,7 +1,10 @@
 RailsOmniauthFacebook::Application.routes.draw do
 get '/' => 'home#index'
 
-devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
+devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout',
+            :password => 'password', :confirmation => 'verification',
+            :unlock => 'unblock', :registration => 'signup',
+            :sign_up => 'new' }
 
 resources :users do 
   resources :datees
@@ -10,20 +13,20 @@ end
 resources :experiences do
   resources :surveys
 end
-<<<<<<< HEAD
- 
-=======
->>>>>>> 77369b11060736ba208be06d05c579607492e169
 
-get "/log-in" => 'sessions#new'
-post "/log-in" => 'sessions#create', as: :log_in
-get "/log-out" => 'sessions#destroy', as: :log_out
-<<<<<<< HEAD
+
+devise_scope :user do
+    get   'login', to: 'devise/sessions#new'
+    get   "logout", :to => "devise/sessions#destroy"
+    get   "signup", :to => "devise/registrations#new"
+    get   "password", :to => "devise/passwords#new"
+    match 'users/secret', to: "devise/passwords#create", via: :post
+    match 'sessions/user', to: 'devise/sessions#create', via: :post
+    match 'users/signup', to: 'devise/registrations#create', via: :post
+  end
 
 root to: "home#index"
-=======
-  
->>>>>>> 77369b11060736ba208be06d05c579607492e169
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
