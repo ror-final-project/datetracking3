@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  protected
+  
 
   def current_user
   	@current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -15,9 +15,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  protected
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:name, :email) }
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password ) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:fname, :lname, :email,  :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:fname, :lname, :email, :password, :password_confirmation, :current_password ) }
   end
 end

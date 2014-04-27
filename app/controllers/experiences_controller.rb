@@ -14,13 +14,15 @@ class ExperiencesController < ApplicationController
   def create
     @experience = Experience.new(experience_params)
     @user = User.where(email: params[:user_email]).first
+    
     if @user
       @experience.datee_id = @user.id
       @experience.fname = @user.fname
+      @experience.user_id = current_user
       #if a user is found, assign them to that experience, flash notice
       #to inform of success,
       #redirect.
-      @experience.user = current_user
+      #@experience.user = current_user
       if @experience.save
         flash[:notice] = "Your date has been saved."
         redirect_to experiences_path(@experience)
